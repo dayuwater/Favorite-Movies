@@ -1,3 +1,5 @@
+'''  The python file to fetch movie data from TheMovieDB API and display them in a 
+scaffolded webpage '''
 import media
 import fresh_tomatoes
 
