@@ -11,6 +11,16 @@ import fresh_tomatoes
 def get_full_path(path_from_api):
     return "http://image.tmdb.org/t/p/w185/"+path_from_api
 
+# get the movie trailer url from API
+def get_trailer(movie_id):
+    url = "https://api.themoviedb.org/3/movie/"+str(movie_id)+"/videos?api_key="+API_KEY+"&language=en-US"
+    payload = "{}"
+    response = requests.request("GET", url, data=payload)
+    # since there are many video links coming out, I will just pick the first one
+    result_dic = json.loads(response.text)['results'][0]
+    youtube_key = result_dic['key']
+    return "https://www.youtube.com/watch?v="+youtube_key
+
 # Enter your API key here
 API_KEY = "878337c301e790447564e6a9915721e5"
 
@@ -29,9 +39,10 @@ for item in result_dic:
     movie_id = item['id']
     vote = item['vote_average'] # will use this to change the color of the title in the webpage
     image_path = get_full_path(image_path)
+    trailer_url = get_trailer(movie_id)
 
     # create the instance of movie class
-    new_movie = media.Movie(movie_id,title,overview,image_path,"",vote)
+    new_movie = media.Movie(movie_id,title,overview,image_path,trailer_url,vote)
     movies.append(new_movie)
         
     
