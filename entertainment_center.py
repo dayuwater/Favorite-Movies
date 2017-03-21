@@ -1,19 +1,48 @@
 '''  The python file to fetch movie data from TheMovieDB API and display them in a 
 scaffolded webpage '''
+import requests
+import json
 import media
 import fresh_tomatoes
 
-toy_story = media.Movie("Toy Story",
-                        "A story of a boy and his toys that come to life",
-                        "http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
-                        "https://www.youtube.com/watch?v=vwyZH85NQC4")
 
 
-avatar = media.Movie("Avatar",
-                     "A marine on an alien planet",
-                     "http://upload.wikimedia.org/wikipedia/id/b/b0/Avatar-Teaser-Poster.jpg",
-                     "https://www.youtube.com/watch?v=-9c3BgWV8io")
-movies = [toy_story,avatar]
+# convert the poster path from API to the full path
+def get_full_path(path_from_api):
+    return "http://image.tmdb.org/t/p/w185/"+path_from_api
+
+# Enter your API key here
+API_KEY = "878337c301e790447564e6a9915721e5"
+
+# the connection code for using the API
+url = "https://api.themoviedb.org/3/discover/movie?api_key="+API_KEY+"&include_video=true"
+payload = "{}"
+response = requests.request("GET", url, data=payload)
+result_dic = json.loads(response.text)['results']
+movies=[]
+
+for item in result_dic:
+    # fetch the nessesary data
+    title = item['title']
+    image_path = item['poster_path']
+    overview = item['overview']
+    movie_id = item['id']
+    vote = item['vote_average'] # will use this to change the color of the title in the webpage
+    image_path = get_full_path(image_path)
+
+    # create the instance of movie class
+    new_movie = media.Movie(movie_id,title,overview,image_path,"",vote)
+    movies.append(new_movie)
+        
+    
+
+
+
+
+
+
+
+
 fresh_tomatoes.open_movies_page(movies)
 
 
