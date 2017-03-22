@@ -28,7 +28,8 @@ API_KEY = "878337c301e790447564e6a9915721e5"
 url = "https://api.themoviedb.org/3/discover/movie?api_key="+API_KEY+"&include_video=true"
 payload = "{}"
 response = requests.request("GET", url, data=payload)
-result_dic = json.loads(response.text)['results']
+# the webpage does not look nice after 9 items
+result_dic = json.loads(response.text)['results'][0:9]
 movies=[]
 
 for item in result_dic:

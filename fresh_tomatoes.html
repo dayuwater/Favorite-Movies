@@ -13,6 +13,8 @@
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
+            background-color:aliceblue;
+            
         }
         #trailer .modal-dialog {
             margin-top: 200px;
@@ -32,8 +34,39 @@
         .movie-tile {
             margin-bottom: 20px;
             padding-top: 20px;
+            
+        }
+        .movie-tile-high-rating {
+            margin-bottom: 20px;
+            padding-top: 20px;
+            color:green;
+            
+        }
+        .movie-tile-mid-rating {
+            margin-bottom: 20px;
+            padding-top: 20px;
+            color:coral;
+            
+        }
+        .movie-tile-low-rating {
+            margin-bottom: 20px;
+            padding-top: 20px;
+            color:red;
+            
         }
         .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .movie-tile-high-rating:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .movie-tile-mid-rating:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .movie-tile-low-rating:hover {
             background-color: #EEE;
             cursor: pointer;
         }
@@ -60,6 +93,36 @@
         });
         // Start playing the video whenever the trailer modal is opened
         $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        $(document).on('click', '.movie-tile-high-rating', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        $(document).on('click', '.movie-tile-mid-rating', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        $(document).on('click', '.movie-tile-low-rating', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
@@ -97,111 +160,57 @@
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a> 
+            
           </div>
         </div>
       </div>
     </div>
     <div class="container">
       
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="XaE_9pfybL4" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-high-rating text-center" data-trailer-youtube-id="XaE_9pfybL4" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//45Y1G5FEgttPAwjTYic6czC9xCn.jpg" width="220" height="342">
     <h2>Logan</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="eVSAZv4oqW8" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-mid-rating text-center" data-trailer-youtube-id="eVSAZv4oqW8" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//z09QAf8WbZncbitewNk6lKYMZsh.jpg" width="220" height="342">
     <h2>Finding Dory</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="44LdLqgOpjo" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-mid-rating text-center" data-trailer-youtube-id="44LdLqgOpjo" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//aoUyphk4nwffrwlZRaOa0eijgpr.jpg" width="220" height="342">
     <h2>Kong: Skull Island</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Zvjmt4pwtdg" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-mid-rating text-center" data-trailer-youtube-id="Zvjmt4pwtdg" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//s9ye87pvq2IaDvjv9x4IOXVjvA7.jpg" width="220" height="342">
     <h2>Sing</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5Z2FolPbu2s" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//sGFOggXN12CcSXD01hSAIaEoSgs.jpg" width="220" height="342">
-    <h2>The Mother of Tears</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="bvu-zlR5A8Q" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//jjBgi2r5cRt36xF6iNUEhzscEcb.jpg" width="220" height="342">
-    <h2>Jurassic World</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tWapqpCEO7Y" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-high-rating text-center" data-trailer-youtube-id="tWapqpCEO7Y" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//tnmL0g604PDRJwGJ5fsUSYKFo9.jpg" width="220" height="342">
     <h2>Beauty and the Beast</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="OItKvc13gws" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-mid-rating text-center" data-trailer-youtube-id="bvu-zlR5A8Q" data-toggle="modal" data-target="#trailer">
+    <img src="http://image.tmdb.org/t/p/w185//jjBgi2r5cRt36xF6iNUEhzscEcb.jpg" width="220" height="342">
+    <h2>Jurassic World</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile-mid-rating text-center" data-trailer-youtube-id="OItKvc13gws" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//aybgjbFbn6yUbsgUMnUbwc2jcWd.jpg" width="220" height="342">
     <h2>Fifty Shades Darker</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FnZF82_3Cts" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-mid-rating text-center" data-trailer-youtube-id="FnZF82_3Cts" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//gri0DDxsERr6B2sOR1fGLxLpSLx.jpg" width="220" height="342">
     <h2>Fantastic Beasts and Where to Find Them</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="3xoxeCWpZyU" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//4PiiNGXj1KENTmCBHeN6Mskj2Fq.jpg" width="220" height="342">
-    <h2>Doctor Strange</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="gwqSi_ToNPs" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile-mid-rating text-center" data-trailer-youtube-id="gwqSi_ToNPs" data-toggle="modal" data-target="#trailer">
     <img src="http://image.tmdb.org/t/p/w185//hLudzvGfpi6JlwUnsNhXwKKg4j.jpg" width="220" height="342">
     <h2>Arrival</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Rt2LHkSwdPQ" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg" width="220" height="342">
-    <h2>Interstellar</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FkAndUJpyX0" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//bbxtz5V0vvnTDA2qWbiiRC77Ok9.jpg" width="220" height="342">
-    <h2>Rings</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qUtn5yHJRTk" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//tIKFBxBZhSXpIITiiB5Ws8VGXjt.jpg" width="220" height="342">
-    <h2>Assassin's Creed</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="RllJtOw0USI" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//5vHssUeVe25bMrof1HyaPyWgaP.jpg" width="220" height="342">
-    <h2>John Wick</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="43NWzay3W4s" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//kSBXou5Ac7vEqKd97wotJumyJvU.jpg" width="220" height="342">
-    <h2>Captain America: Civil War</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qFlG7cHc2zU" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//nHXiMnWUAUba2LZ0dFkNDVdvJ1o.jpg" width="220" height="342">
-    <h2>Underworld: Blood Wars</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="hEJnMQG9ev8" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//kqjL17yufvn9OVLyXYpvtyrFfak.jpg" width="220" height="342">
-    <h2>Mad Max: Fury Road</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="DN1uhnnKscY" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//AvekzUdI8HZnImdQulmTTmAZXrC.jpg" width="220" height="342">
-    <h2>Miss Peregrine's Home for Peculiar Children</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="b7yOuhI1dzU" data-toggle="modal" data-target="#trailer">
-    <img src="http://image.tmdb.org/t/p/w185//y31QB9kn3XSudA15tV7UWQ9XLuW.jpg" width="220" height="342">
-    <h2>Guardians of the Galaxy</h2>
 </div>
 
     </div>
