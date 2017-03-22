@@ -23,7 +23,7 @@ def get_trailer(movie_id):
    
 # Enter your API key here
 API_KEY = "Enter your API key here"
-jjj
+
 # the connection code for using the API
 url = "https://api.themoviedb.org/3/discover/movie?api_key="+API_KEY+"&include_video=true"
 payload = "{}"
