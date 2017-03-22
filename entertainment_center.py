@@ -20,10 +20,10 @@ def get_trailer(movie_id):
     result_dic = json.loads(response.text)['results'][0]
     youtube_key = result_dic['key']
     return "https://www.youtube.com/watch?v="+youtube_key
-
+   
 # Enter your API key here
 API_KEY = "Enter your API key here"
-
+jjj
 # the connection code for using the API
 url = "https://api.themoviedb.org/3/discover/movie?api_key="+API_KEY+"&include_video=true"
 payload = "{}"
