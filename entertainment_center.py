@@ -1,5 +1,5 @@
 '''  The python file to fetch movie data from TheMovieDB API and display them in a 
-scaffolded webpage '''
+scaffolded webpage    '''
 import requests
 import json
 import media
