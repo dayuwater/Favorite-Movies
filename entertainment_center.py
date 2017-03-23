@@ -22,7 +22,7 @@ def get_trailer(movie_id):
     youtube_key = result_dic['key']
     return "https://www.youtube.com/watch?v="+youtube_key  
 # Enter your API key here
-API_KEY = "878337c301e790447564e6a9915721e5"
+API_KEY = "Your API key here"
 
 # the connection code for using the API
 url = "https://api.themoviedb.org/3/discover/movie?api_key="+ \
