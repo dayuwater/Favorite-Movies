@@ -14,7 +14,7 @@ def get_full_path(path_from_api):
 def get_trailer(movie_id):
     ''' Get the movie trailer url from API '''
     url = "https://api.themoviedb.org/3/movie/"+str(movie_id) \
-    +"/videos?api_key="+API_KEY+"&language=en-US"
+        + "/videos?api_key="+API_KEY+"&language=en-US"
     payload = "{}"
     response = requests.request("GET", url, data=payload)
     # since there are many video links coming out, I will just pick the first
@@ -25,8 +25,8 @@ def get_trailer(movie_id):
 API_KEY = "Your API key here"  
 
 # the connection code for using the API
-url = "https://api.themoviedb.org/3/discover/movie?api_key="+ \
-API_KEY+"&include_video=true"
+url = "https://api.themoviedb.org/3/discover/movie?api_key=" + \
+      API_KEY+"&include_video=true"
 payload = "{}"
 response = requests.request("GET", url, data=payload)
 # the webpage does not look nice after 9 items
@@ -50,6 +50,3 @@ for item in result_dic:
     movies.append(new_movie)
 
 fresh_tomatoes.open_movies_page(movies)
-
-
-
